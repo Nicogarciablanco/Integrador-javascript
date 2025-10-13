@@ -15,7 +15,7 @@ const total = document.querySelector('#cart-total')
 const BuyCartButton = document.querySelector('.buycart')
 const clearCartButton = document.querySelector('.clearcart')
 // Overlay para alertas
-const alertOverlay = document.querySelector('.blur-alert-overlay');
+const overlay = document.querySelector('.blur-overlay');
 
 
 ///////////////////////////////////////////////////////////////
@@ -31,8 +31,8 @@ const handleCartClick = () => {
     // Si el menú de navegación está abierto, lo cierra
     if (navlinks.classList.contains('navlinks-open')) {
         navlinks.classList.remove('navlinks-open')
-    }
-}
+    };
+};
 
 ///////////////////////////////////////////////////////////////
 ////////////// Logica productos del carrito ///////////////////
@@ -103,6 +103,7 @@ const UpdateCartState = () => {
     renderCart();
     showCartTotal();
     updateCartBadge(cartProducts.reduce((acc, cur) => acc + cur.quantity, 0));
+    toggleCartButtons();
 }
 
 // Agrega un producto al carrito cuando se hace click en el botón correspondiente
@@ -190,6 +191,15 @@ const handleQuantity = ({ target }) => {
     }
 }
 
+// Si el carrito está vacío, desactiva los botones de comprar y vaciar
+const toggleCartButtons = () => {
+    const disabled = !cartProducts.length;
+    BuyCartButton.disabled = disabled;
+    clearCartButton.disabled = disabled;
+    BuyCartButton.style.cursor = disabled ? 'not-allowed' : 'pointer';
+    clearCartButton.style.cursor = disabled ? 'not-allowed' : 'pointer';
+};
+
 ///////////////////////////////////////////////////////////////
 ////////////// Logica alertas flotantes ////////////////////////
 ///////////////////////////////////////////////////////////////
@@ -197,52 +207,42 @@ const handleQuantity = ({ target }) => {
 // Duración para las alertas
 let duration = 1500;
 
-// Alerta difuminada        
-
-const blurAlertOverlay = (autoHide = true) => {
-    alertOverlay.style.display = 'block';
-    if (autoHide) {
-        setTimeout(() => {
-            alertOverlay.style.display = 'none';
-        }, duration);
-    }
-}
-
-let alertDiv = null;
-
-// Crear div de alerta flotante
-
-const createAlertDiv = (message) => {
-    if (alertDiv) alertDiv.remove();
-
-    alertDiv = document.createElement('div');
-    alertDiv.className = 'floating-alert';
+const showFloatingAlert = (message) => {
+    // Crea el div de alerta
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'background-alert';
     document.body.appendChild(alertDiv);
-    alertDiv.textContent = message;
-
+    alertDiv.innerHTML = `<div class="floating-alert"><p>${message}</p></div>`;
+    // Elimina el div después de la duración especificada
     setTimeout(() => {
-        if (alertDiv) {
-            alertDiv.remove();
-            alertDiv = null;
-            alertOverlay.style.display = 'none';
-        }
+        alertDiv.remove();
     }, duration);
+
 }
 
-const removeAlertDiv = ({ target }) => {
+const showConfirmation = (message, onConfirm) => {
+    const confirmDiv = document.createElement('div');
+    confirmDiv.className = 'background-alert';
+    confirmDiv.innerHTML = `
+        <div class="floating-alert">
+            <p>${message}</p>
+            <div class="confirm-buttons">
+                <button class="confirm-yes purchasebtn">Sí</button>
+                <button class="confirm-no purchasebtn">No</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(confirmDiv);
 
-    if (target.classList.contains('blur-alert-overlay') && alertDiv) {
-        alertOverlay.style.display = 'none';
-        alertDiv.remove();
-        alertDiv = null;
-    }
+    confirmDiv.querySelector('.confirm-yes').addEventListener('click', () => {
+        confirmDiv.remove();
+        onConfirm();
+    });
+    confirmDiv.querySelector('.confirm-no').addEventListener('click', () => {
+        confirmDiv.remove();
+    });
 };
 
-
-const showFloatingAlert = (message) => {
-    blurAlertOverlay();
-    createAlertDiv(message);
-}
 ///////////////////////////////////////////////////////////////
 ////////////// Logica vaciar carrito /////////////////////////
 ///////////////////////////////////////////////////////////////
@@ -253,73 +253,33 @@ const clearCart = () => {
     UpdateCartState();
 }
 
-// Alerta de carrito vacío al intentar finalizar compra
+// Vaciar carrito con confirmación
 const alertClearCart = ({ target }) => {
-    if (!cartProducts.length && target.classList.contains('clearcart')) {
-        showFloatingAlert('No hay productos en el carrito para limpiar');
+    if (cartProducts.length && target.classList.contains('clearcart')) {
+        showConfirmation('¿Estás seguro que deseas vaciar el carrito?', () => {
+            showFloatingAlert('Carrito vaciado');
+            clearCart();
+        });
     }
-    else {
-        clearCart();
-        showFloatingAlert('Carrito vaciado');
-    }
-}
+};
 
 ///////////////////////////////////////////////////////////////
 ////////////// Logica finalizar compra ////////////////////////
 ///////////////////////////////////////////////////////////////
 
-// Alerta de carrito vacío al intentar finalizar compra
-const alertBuyCart = () => {
-    if (!cartProducts.length) {
-        showFloatingAlert('El carrito está vacío, agregue productos para finalizar la compra');
+// Finalizar compra con confirmación
+const alertBuyCart = ({ target }) => {
+    if (cartProducts.length && target.classList.contains('buycart')) {
+        showConfirmation('¿Estás seguro que deseas finalizar la compra?', () => {
+            showFloatingAlert('Compra finalizada con éxito');
+            clearCart();
+        });
     }
-}
-
-
-// Crear div de confirmación de compra
-const createPurchaseDiv = () => {
-    blurAlertOverlay(false);
-    const purchaseDiv = document.createElement('div');
-    purchaseDiv.className = 'floating-alert';
-    document.body.appendChild(purchaseDiv);
-    purchaseDiv.innerHTML = `
-        <p>¿Desea finalizar la compra?</p>
-        <button class="confirm-yes purchasebtn">Sí</button>
-        <button class="confirm-no purchasebtn">No</button>
-    `;
-    // Selecciona los botones y asigna los eventos
-    purchaseDiv.querySelector('.confirm-yes').onclick = () => {
-        showFloatingAlert('Compra realizada con éxito');
-        clearCart();
-        purchaseDiv.remove();
-        blurAlertOverlay(true);
-    };
-    purchaseDiv.querySelector('.confirm-no').onclick = () => {
-        purchaseDiv.remove();
-        alertOverlay.style.display = 'none';
-    };
-
-}
-
-// Maneja la confirmación de la compra
-const confirmPurchaseAlert = () => {
-    createPurchaseDiv();
-}
-
-// Finalizar compra
-
-const completePurchase = () => {
-    if (cartProducts.length) {
-        confirmPurchaseAlert();
-        return;
-    } else {
-        alertBuyCart();
-    }
-}
+};
 
 const updateCartBadge = (count) => {
-    const cartIcon = document.querySelector('.cart-icon'); 
-        cartIcon.setAttribute('data-count', count);
+    const cartIcon = document.querySelector('.cart-icon');
+    cartIcon.setAttribute('data-count', count);
 };
 
 
@@ -340,11 +300,11 @@ export const InitCartNavbar = () => {
     // Maneja la cantidad de cada producto en el carrito
     cartProductsContainer.addEventListener('click', handleQuantity);
     // Finaliza la compra
-    BuyCartButton.addEventListener('click', completePurchase);
-    // Elimina el carrito
+    BuyCartButton.addEventListener('click', alertBuyCart);
+    // Vaciar el carrito
     clearCartButton.addEventListener('click', alertClearCart);
-    // Cierra la alerta difuminada al hacer click fuera del cuadro de alerta
-    alertOverlay.addEventListener('click', removeAlertDiv);
     // Actualiza el badge del carrito al cargar la página
     document.addEventListener('DOMContentLoaded', () => updateCartBadge(cartProducts.reduce((acc, cur) => acc + cur.quantity, 0)));
+    // Inicializa el estado de los botones del carrito al cargar la página
+    document.addEventListener('DOMContentLoaded', toggleCartButtons);
 }

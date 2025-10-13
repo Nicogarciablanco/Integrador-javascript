@@ -12,11 +12,10 @@
     --titulos_encabezados_weight_h1: 600;
     --titulos_encabezados_color: white;
     --cuerpo_de_texto_font: "Manrope", serif;
-    --cuerpo_de_texto_color: #B3B3B3;
     --cuerpo_de_texto_size: 18px;
     --button_radius: 5px;
     --naranja1: #F2911B;
-    --naranjacards: rgb(180, 95, 38);
+    --naranjacards: #b45f26;
     --naranjahover:#ffa538;
     /* Variables para media queries */
     --titulos_encabezados_size_h1_mq850: 30px;

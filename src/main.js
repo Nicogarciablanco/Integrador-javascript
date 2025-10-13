@@ -34,6 +34,8 @@ const overlay = document.querySelector('.blur-overlay');
 const cartContainer = document.querySelector('.cart-container');
 const navlinks = document.querySelector('.navlinks');
 
+// Función para manejar la visibilidad del overlay
+
 const openOverlay = () => {
 if (cartContainer.classList.contains('cart-open') || (navlinks.classList.contains('navlinks-open') && window.innerWidth < 850)) {
         overlay.classList.add('blur-active');
@@ -41,7 +43,6 @@ if (cartContainer.classList.contains('cart-open') || (navlinks.classList.contain
         overlay.classList.remove('blur-active');
     } return;
 };
-
 
 const closeOverlay = ({target}) => {
     if (target.classList.contains('blur-active')) {
@@ -51,6 +52,7 @@ const closeOverlay = ({target}) => {
     } return;
 };
 
+// Función para activar el overlay y asignar el evento de cierre
 export const blurOverlay = () => {
     openOverlay();
     overlay.addEventListener('click', closeOverlay);
