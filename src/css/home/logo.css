@@ -1,0 +1,23 @@
+/* Importa la fuente Oxanium para el logo */
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
+/* Estilos para el logo principal */
+.logo {
+    font-family: var(--titulos_encabezados_font);
+    font-style: italic;
+    font-size: var(--titulos_encabezados_size_h1);
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #ffe600;
+    text-shadow: 0px 0px 30px rgb(205, 143, 50); /* Sombra para efecto luminoso */
+    cursor: pointer;
+}
+
+/* Ajuste de tamaño para el logo en pantallas pequeñas */
+/* ==================== Responsive: Ajustes para pantallas menores a 850px ==================== */
+@media (max-width:850px) {
+    /* El logo se hace más pequeño en pantallas chicas */
+    .logo{
+        font-size: var(--titulos_encabezados_size_h1_mq850);
+    }
+}

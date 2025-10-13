@@ -1,0 +1,220 @@
+/* Ícono del carrito de compras */
+.cart {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.cart-icon::after{
+    position: absolute;
+    content: attr(data-count);
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 4px;
+    right: 15%;
+    z-index: 4000;
+    font-size: 12px;
+}
+
+/* Contenedor del carrito (oculto por defecto) */
+.cart-container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 40px;
+    top: 101%;
+    width: 350px;
+    height: 100vh;
+    padding: 15px 15px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateX(200px);
+    opacity: 0;
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+    z-index: 3;
+}
+
+/* Estado visible del carrito */
+.cart-open{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Contenedor para los productos en el carrito */
+.cartproducts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 10px 5px 10px 10px;
+    max-height: 60vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
+}
+
+.cart-item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.cart-item img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.info-item{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--cuerpo_de_texto_font);
+    color: white;
+}
+
+.info-text{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.info-text p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.item-quantity{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-quantity button{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2.5px 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: var(--cuerpo_de_texto_font);
+    border: 1px solid white;
+}
+
+/* Contenedor para el total del carrito */
+.total-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.total-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: var(--cuerpo_de_texto_font);
+}
+
+.total-container button{
+    width: 100%;
+    padding: 5px 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--cuerpo_de_texto_font);
+    transition: 1s;
+    margin-top: 10px;
+}
+
+.total button:hover{
+    background-color: gray;
+    color: white;
+    transition: 1s;
+}
+
+.floating-alert{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    font-family: var(--cuerpo_de_texto_font);
+    z-index: 9999;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.blur-alert-overlay{
+    position: fixed;
+    z-index: 9998;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    display: none;
+    transition: 1s;
+}
+
+.purchasebtn{
+    background-color: yellow;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 1440px) {
+    .cart-icon::after{
+            right: 10%;
+        }
+
+    .cartproducts-container{
+        max-height: 40vh;
+    }   
+}
+
+@media (max-width: 850px) {
+    .cart-icon::after{
+            right: 5%;
+            width: 12px;
+            font-size: 10px;
+        }
+
+    .cart-container {
+        transform: translateX(450px);
+        width: 100%;
+    }
+
+    .cart-open{
+        transform: translateX(0);
+    }
+
+    .cart {
+        width: 25px;
+        height: 25px;
+    }
+}

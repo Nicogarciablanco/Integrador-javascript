@@ -1,0 +1,164 @@
+/* Contenedor principal del pie de página */
+footer{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding-bottom: 40px;
+}
+
+/* Línea divisoria en el footer */
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid white;
+}
+
+/* Contenedor del contenido principal del footer */
+.footer-content {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}   
+
+/* Contenedor de los textos y elementos del footer */
+.footer-text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    height: 130px;
+}
+
+/* Contenedor de las redes sociales en el footer */
+.footer-social { 
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 25px;
+}
+
+/* Lista de íconos de redes sociales */
+.footer-social ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Íconos de redes sociales */
+.footer-social img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Lista de enlaces rápidos en el footer */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+/* Formulario de suscripción al newsletter */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.newsletter-label {
+    font-family: var(--cuerpo_de_texto_font);
+}
+
+.newsletter-email {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: var(--cuerpo_de_texto_font);
+    color: black;
+}
+
+.newsletter-submit {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: var(--cuerpo_de_texto_font);
+    transition: all 0.5s ease;
+}
+
+.newsletter-submit:hover {
+    background-color: white;
+    color: black;
+}
+
+@media (max-width: 1440px) {
+    /* El contenido principal del footer ocupa más ancho */
+    .footer-content {
+        width: 80%;
+    }
+}   
+
+@media (max-width: 1100px) {
+    
+
+    /* Los textos y elementos del footer se apilan en columna */
+    .footer-text {
+        flex-direction: column;
+        height: auto;
+        gap: 50px;
+    }
+}
+
+/* ==================== Responsive: Ajustes para pantallas menores a 850px ==================== */
+@media (max-width: 850px) {
+    /* Reduce el espacio entre bloques del footer */
+    footer{
+        gap: 50px;
+    }
+
+    /* El contenido principal del footer ocupa más ancho y menos espacio vertical */
+    .footer-content {
+        width: 90%;
+        gap: 50px;
+    }
+
+    /* Los textos y elementos del footer se apilan en columna */
+    .footer-text{
+        gap: 25px;
+        height: auto;
+    }
+
+    /* Los íconos de redes sociales se hacen más pequeños */
+    .footer-social img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* El formulario de suscripción ocupa más ancho */
+    .newsletter-email, .newsletter-submit {
+        max-width: 300px;
+    }
+}
+
+/* ==================== Responsive: Ajustes para pantallas menores a 500px ==================== */
+@media (max-width: 500px) {
+    /* El texto del copyright se hace más pequeño */
+    .footer-content p {
+        font-size: 13px;
+    }
+}

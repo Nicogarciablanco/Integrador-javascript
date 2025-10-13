@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/css/home/home.css">
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="blur-alert-overlay"></div>
+  <div class="blur-overlay"></div>
+  <!-- Encabezado principal con logo y navegación -->
+  <header>
+    <span class="logo">CHECKPOINT</span>
+    <nav>
+      <!-- Menú de navegación principal -->
+      <ul class="navlinks">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#about-us">Sobre Nosotros</a></li>
+        <li><a href="#products">Productos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <!-- Ícono de menú hamburguesa y carrito -->
+      <div class="menu-icon">
+        <div class="menu">
+          <hr>
+          <hr>
+          <hr>
+        </div>
+        <!-- Ícono del carrito de compras -->
+        <div class="cart-icon" data-count="">
+          <img class="cart" src="/img/Cart.svg" alt="carrito de compras">
+         </div>
+        <div class="cart-container">
+          <h4>Productos en el carrito:</h4>
+          <div class="cartproducts-container"></div>
+          <hr>
+          <div class="total-container">
+            <div class="total-text">
+              <h4>Total:</h4>
+              <p id="cart-total"></p>
+            </div>
+            <button class="clearcart">Vaciar carrito</button>
+            <button class="buycart">Finalizar compra</button>
+          </div>
+        </div>
+
+      </div>
+
+    </nav>
+
+  </header>
+  <main>
+    <!-- Sección principal de presentación (Hero) -->
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <h1> Subí de nivel <br> Equipate como un profesional</h1>
+        <p>En <b>Checkpoint</b>, el gaming no es solo un pasatiempo, es un estilo de vida.</p>
+
+        <p>Cada clic y cada partida cuentan, por eso tenemos teclados mecánicos ultra rápidos, mouses de precisión y
+          auriculares con sonido
+          envolvente para llevar tu rendimiento al máximo.</p>
+
+        <p>Sea que busques velocidad, comodidad o una estética cyberpunk con luces RGB, acá vas a encontrar todo para
+          armar el setup ideal.</p>
+
+        <p> <b>Dominá el juego, viví la experiencia y dejá tu marca. ¿Estás listo?</b> </p>
+        </p>
+      </div>
+    </section>
+    <!-- Sección sobre la empresa -->
+    <section class="about-us" id="about-us">
+      <h2>Sobre Nosotros</h2>
+
+      <div class="text-aboutus">
+        <p>En Checkpoint no solo vendemos accesorios y equipos para gamers: somos gamers. Sabemos lo que es jugar hasta
+          el amanecer, buscar la mejor configuración y querer el máximo rendimiento en cada partida.</p>
+
+        <p>Nuestro objetivo es ofrecerte productos de primera, con el mejor diseño y rendimiento para que juegues como
+          un pro. Nos inspiramos en la estética cyberpunk, combinando tecnología, innovación y estilo para que tu setup
+          no solo rinda al máximo, sino que también se vea increíble.</p>
+
+        <ul>
+          <li>🔹 Calidad, innovación y pasión por el gaming.</li>
+          <li>🔹 Atención personalizada y envíos a todo el país.</li>
+          <li>🔹 Una comunidad donde los gamers encuentran lo mejor del mercado.</li>
+        </ul>
+
+        <p> No importa si jugás de vez en cuando o si sos un competidor de élite, en Checkpoint tenemos el equipo que
+          necesitás para llevar tu experiencia al siguiente nivel. Bienvenido al futuro del gaming. 🚀🎮</p>
+      </div>
+    </section>
+    <!-- Sección de productos con filtros y cards -->
+    <section class="products" id="products">
+      <h2>Productos</h2>
+      <div class="products-buttons">
+        <h3>Por categorias:</h3>
+        <!-- Botones para filtrar productos por categoría -->
+        <div class="buttons-categories">
+          <button class="filterbuttons" data-category="Motherboards">Motherboards</button>
+          <button class="filterbuttons" data-category="Procesadores">Procesadores</button>
+          <button class="filterbuttons" data-category="Placas de video">Placas de video</button>
+          <button class="filterbuttons" data-category="Nvidia">Nvidia</button>
+          <button class="filterbuttons" data-category="Intel">Intel</button>
+          <button class="filterbuttons" data-category="AMD">AMD</button>
+          <button class="filterbuttons active">Todas</button>
+        </div>
+
+      </div>
+      <!-- Contenedor donde se renderizan las cards de productos -->
+      <div class="products-cards">
+      </div>
+      <!-- Botón para mostrar más productos -->
+      <button class="show-more">Ver más</button>
+    </section>
+    <!-- Sección de contacto con formulario y mapa -->
+    <section class="contact" id="contact">
+      <h2>Contactanos</h2>
+      <div class="contact-container">
+        <!-- Formulario de contacto -->
+        <form action="" id="formulario">
+          <label for="email">Email:</label>
+          <input class="email" type="text" placeholder="edgardo98@gmail.com" name="email" required>
+          <label for="name">Nombre:</label>
+          <input class="name" type="text" placeholder="Edgardo Gomez" name="name" required>
+          <label for="message">Consulta:</label>
+          <textarea class="text" name="message" id="message" placeholder="Escriba su consulta"></textarea>
+          <button class="submit">Enviar</button>
+        </form>
+
+        <!-- Mapa de ubicación usando Google Maps -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16362.553588526223!2d-59.02384065!3d-34.1084376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sar!4v1758803556010!5m2!1ses-419!2sar"
+          width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+    </section>
+    <!-- Pie de página con redes sociales, links y newsletter -->
+    <footer>
+      <hr>
+      <div class="footer-content">
+        <div class="footer-text">
+          <div class="footer-social">
+            <span class="logo">CHECKPOINT</span>
+            <ul>
+              <li><a href="#"><img src="/img/socialicons/Facebookicon.svg" alt=""></a></li>
+              <li><a href="#"><img src="/img/socialicons/Instagramicon.svg" alt=""></a></li>
+              <li><a href="#"><img src="/img/socialicons/Xicon.svg" alt=""></a></li>
+              <li><a href="#"><img src="/img/socialicons/Yotubeicon.svg" alt=""></a></li>
+            </ul>
+          </div>
+          <!-- Links rápidos del footer -->
+          <ul class="footer-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#about-us">Sobre Nosotros</a></li>
+            <li><a href="#products">Productos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+          <!-- Formulario de suscripción al newsletter -->
+          <form class="newsletter-form" action="" id="newsletter">
+            <label class="newsletter-label" for="">Suscribite a nuestro newsletter</label>
+            <input class="newsletter-email" type="email" placeholder="Tu email" required>
+            <button class="newsletter-submit" type="submit">Enviar</button>
+          </form>
+        </div>
+        <p>© 2025 Checkpoint. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </main>
+  <!-- Script principal de la aplicación -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+/* Contenedor principal de la sección de productos */
+.products {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 100%;
+}
+
+/* Título de la sección productos */
+.products h2 {
+    text-align: center;
+}
+
+/* Contenedor de los botones de filtro de productos */
+.products-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botones para filtrar por categoría */
+.buttons-categories {
+    display: flex;
+    gap: 20px;
+    width: 476px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilos de los botones de filtro */
+.filterbuttons {
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--cuerpo_de_texto_font);
+    transition: 1s;
+}
+
+/* Efecto hover en los botones de filtro */
+.filterbuttons:hover{
+    background-color: white;
+    color: black;
+}
+
+/* Botón de filtro activo */
+.active{
+    background-color: rgb(226, 226, 226);
+    color: black;
+}
+
+/* Contenedor de las cards de productos */
+.products-cards {
+    margin: 0 auto;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    justify-content: space-between;
+}
+
+/* Estilos para cada card de producto */
+.card {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 10px;
+    width: 250px;
+}
+
+
+/* Imagen del producto en la card */
+.card img {
+    max-width: 220px;
+    max-height: 220px;
+}
+
+/* Nombre del producto en la card */
+.card h4 {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Botón para agregar producto al carrito */
+.card button {
+    padding: 2px 5px;
+    background-color: black;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: var(--cuerpo_de_texto_font);
+    border: none;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+/* Efecto hover en el botón de la card */
+.card button:hover{
+    background-color: white;
+    color: black;
+    transition: 1s;
+}
+
+/* Botón para mostrar más productos */
+.show-more {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: var(--cuerpo_de_texto_font);
+    transition: 1s;
+    margin: 0 auto;
+    display: flex;
+}
+
+/* Efecto hover en el botón de mostrar más */
+.show-more:hover{
+    background-color: white;
+    color: black;
+    transition: 1s;
+}
+
+
+
+/* Estilos responsivos para la sección de productos en pantallas pequeñas */
+/* ==================== Responsive: Ajustes para pantallas menores a 850px ==================== */
+@media (max-width: 850px){
+    /* Los botones de filtro se apilan en columna y ocupan menos espacio */
+    .products-buttons {
+        margin: 0 auto;
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    .products-cards {
+        width: 90%;
+    }
+
+    /* Los botones de categorías se adaptan al ancho y se agrupan */
+    .buttons-categories {
+        width: 70%;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

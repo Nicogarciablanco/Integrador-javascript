@@ -1,0 +1,100 @@
+/* Contenedor principal de la sección de contacto */
+.contact{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Contenedor del formulario y mapa de contacto */
+.contact-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Estilos para el formulario de contacto */
+form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+    font-family: var(--cuerpo_de_texto_font);
+    color: black;
+}
+
+/* Campo de email del formulario */
+.email {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    border: none;
+}
+
+/* Campo de nombre del formulario */
+.name {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+}
+
+/* Campo de texto para la consulta */
+.text {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+}
+
+/* Botón para enviar el formulario */
+.submit {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.submit:hover {
+    background-color: white;
+    color: black;
+}
+
+/* ==================== Responsive: Ajustes para pantallas menores a 850px ==================== */
+@media (max-width:850px){
+    /* El contenedor principal de contacto ocupa más ancho */
+    .contact{
+        width: 90%;
+    }
+
+    /* El formulario y el mapa se apilan en columna y se centran */
+    .contact-container{
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    /* El formulario ocupa todo el ancho disponible */
+    form{
+        width: 100%;
+    }
+
+    /* El mapa se adapta al ancho y reduce su altura */
+    iframe{
+        width: 100%;
+        height: 200px;
+    }
+}

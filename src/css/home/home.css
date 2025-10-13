@@ -1,0 +1,36 @@
+/* Importa los estilos globales y los específicos de cada sección */
+@import url("/src/style.css"); /* Estilos generales */
+@import url("./logo.css");     /* Estilos del logo */
+@import url("./navbar.css");   /* Estilos de la barra de navegación */
+@import url("./cart.css");     /* Estilos del carrito */
+@import url("./hero.css");     /* Estilos de la sección hero */
+@import url("./about-us.css"); /* Estilos de la sección sobre nosotros */
+@import url("./products.css"); /* Estilos de la sección productos */
+@import url("./contact.css");  /* Estilos de la sección contacto */
+@import url("./footer.css");   /* Estilos del pie de página */
+
+/* Estilos para el contenedor principal de la página */
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 150px; /* Espacio entre secciones */
+}
+
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0px);
+    z-index: -1;
+    transition: 1s all;
+    opacity: 0;
+}
+
+.blur-overlay.blur-active {
+    backdrop-filter: blur(3px);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}

@@ -1,0 +1,106 @@
+/* Estilos para el encabezado fijo y su contenido */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15% 0 15%;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 0;
+    z-index: 3;
+    transition: 0.5s;
+}
+
+/* Contenedor de la barra de navegación */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Lista de enlaces de navegación */
+.navlinks {
+    display: flex;
+    gap: 30px;
+}
+
+/* Contenedor del ícono de menú y carrito */
+.menu-icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Ícono de menú hamburguesa (oculto en desktop) */
+.menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+/* Líneas del ícono de menú hamburguesa */
+.menu hr {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    border: none;
+    border-radius: 38px;
+}
+
+
+/* Ajustes de padding para pantallas medianas */
+/* ==================== Responsive: Ajustes para pantallas menores a 1440px ==================== */
+@media (max-width: 1440px) {
+    /* Reduce el padding lateral del header */
+    header {
+        padding: 0 10% 0 10%;
+    }
+}
+
+@media (max-width: 1000px) {
+    /* Reduce el padding lateral del header */
+    header {
+        padding: 0 5% 0 5%;
+    }
+    nav {
+        gap: 10px;
+    }
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+/* ==================== Responsive: Ajustes para pantallas menores a 850px ==================== */
+@media (max-width: 850px) {
+    /* Muestra el menú hamburguesa y oculta el menú tradicional */
+    .menu {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .menu hr {
+        background-color: white;
+    }
+
+    /* Los enlaces de navegación se apilan en columna y se ocultan por defecto */
+    .navlinks {
+        position: absolute;
+        flex-direction: column;
+        gap: 15px;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 1% 0 5% 5%;
+        width: 100%;
+        left: 0;
+        z-index: -1;
+        transform: translateY(-200px);
+        opacity: 0;
+        transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+    }
+
+    /* Estado visible del menú en mobile */
+    .navlinks-open {
+        transform: translateY(61.2%);
+        opacity: 1;
+    }
+}
+

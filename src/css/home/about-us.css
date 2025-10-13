@@ -1,0 +1,31 @@
+/* Contenedor principal de la sección sobre nosotros */
+.about-us{
+    width: 45%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+}
+
+/* Contenedor del texto de la sección sobre nosotros */
+.text-aboutus{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Estilos responsivos para la sección sobre nosotros en pantallas pequeñas */
+/* ==================== Responsive: Ajustes para pantallas menores a 850px ==================== */
+@media (max-width:850px){
+    /* El contenedor de la sección sobre nosotros ocupa más ancho */
+    .about-us{
+        width: 90%;
+    }
+}
+
+
+
+
