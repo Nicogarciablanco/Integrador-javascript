@@ -14,8 +14,8 @@ const total = document.querySelector('#cart-total')
 // Selecciona los botones de eliminar y vaciar carrito
 const BuyCartButton = document.querySelector('.buycart')
 const clearCartButton = document.querySelector('.clearcart')
-// Overlay para alertas
-const overlay = document.querySelector('.blur-overlay');
+// Selecciona el div para mostrar alertas de unidades
+const unitDiv = document.querySelector('.unit-alert');
 
 
 ///////////////////////////////////////////////////////////////
@@ -106,28 +106,37 @@ const UpdateCartState = () => {
     toggleCartButtons();
 }
 
+// Muestra una alerta de unidad agregada
+const showUnitTemplate = (message) => {
+    unitDiv.innerHTML = `<p>${message}</p>`;
+    unitDiv.classList.add('unit-alert-show');
+
+    setTimeout(() => {
+        unitDiv.classList.remove('unit-alert-show');
+    }, 1000);
+}
+
+
 // Agrega un producto al carrito cuando se hace click en el botón correspondiente
 const addProductToCart = ({ target }) => {
     // Verifica si el elemento clickeado es un botón de producto
     if (!target.classList.contains('productsbutton')) return;
     const product = createProductData(target.dataset);
-    // Valida si el producto ya está en el carrito
     if (isExistingProduct(product)) {
-        addUnitToProduct(product)
+        addUnitToProduct(product);
+        showUnitTemplate('Se agregó una unidad más al carrito');
     } else {
-
         cartProducts = [...cartProducts, { ...product, quantity: 1 }];
-
-
+        showUnitTemplate('Producto agregado al carrito');
     }
-    UpdateCartState();
+    
 };
 
 // Función para agregar una unidad
 const addUnitToProduct = (product) => {
     cartProducts = cartProducts.map((productCart) =>
         productCart.id === product.id
-            ? { ...productCart, quantity: productCart.quantity + 1 }
+            ?  { ...productCart, quantity: productCart.quantity + 1 }
             : productCart
     );
 }
@@ -136,7 +145,7 @@ const addUnitToProduct = (product) => {
 // Crea un objeto con la información del producto usando los atributos data
 const createProductData = (product) => {
     const { id, name, price, image } = product;
-    return { id, name, price, image };
+    return { id: String(id), name, price, image };
 }
 
 // Función para saber si un producto ya está en el carrito
@@ -208,6 +217,7 @@ const toggleCartButtons = () => {
 let duration = 1500;
 
 const showFloatingAlert = (message) => {
+    document.body.style.overflow = 'hidden';
     // Crea el div de alerta
     const alertDiv = document.createElement('div');
     alertDiv.className = 'background-alert';
@@ -216,11 +226,13 @@ const showFloatingAlert = (message) => {
     // Elimina el div después de la duración especificada
     setTimeout(() => {
         alertDiv.remove();
+        document.body.style.overflow = 'auto';
     }, duration);
 
 }
 
 const showConfirmation = (message, onConfirm) => {
+    document.body.style.overflow = 'hidden';
     const confirmDiv = document.createElement('div');
     confirmDiv.className = 'background-alert';
     confirmDiv.innerHTML = `

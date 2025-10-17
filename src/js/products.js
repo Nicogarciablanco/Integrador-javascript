@@ -191,10 +191,10 @@ const productsTemplate = (product => {
             <h4>${name}</h4>
             <p>$${price}</p>
             <button class="productsbutton"
-            data-id=${id}
-            data-name="${name}"
-            data-price=${price}
-            data-image=${image}
+            data-id='${id}'
+            data-name='${name}'
+            data-price='${price}'
+            data-image='${image}'
             >Agregar al carrito</button>
         </div>
     `;

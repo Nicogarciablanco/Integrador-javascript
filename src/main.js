@@ -24,6 +24,19 @@ const scrollToTop = () => {
     });
 }
 
+// Función para que se cierre el menú y el carrito al hacer scroll
+window.onscroll = () => {
+    const navlinks = document.querySelector('.navlinks');
+    const cartContainer = document.querySelector('.cart-container');
+    const overlay = document.querySelector('.blur-overlay');
+    if (navlinks.classList.contains('navlinks-open') || cartContainer.classList.contains('cart-open')) {
+        navlinks.classList.remove('navlinks-open');
+        cartContainer.classList.remove('cart-open');
+        overlay.classList.remove('blur-active');
+    }
+    return;
+}
+
 // Asigna el evento de click a cada logo para volver al inicio
 toTop.forEach((element) => {
     element.addEventListener('click', scrollToTop);
@@ -57,6 +70,16 @@ export const blurOverlay = () => {
     openOverlay();
     overlay.addEventListener('click', closeOverlay);
 };
+
+/* // Función para cerrar el carrito y el menu al cambiar el tamaño de la ventana
+export const closeOnResize = () => {
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 850) {
+            navlinks.classList.remove('navlinks-open');
+            overlay.classList.remove('blur-active');
+        }
+    });
+}; */
 
 // Función principal que inicializa los módulos de la app
 const init = () => {
