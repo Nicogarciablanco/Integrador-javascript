@@ -1,18 +1,20 @@
 // Importa la función para inicializar los productos
 import {initProducts} from "./js/products";
 // Importa la función para inicializar el menú de navegación
-import { InitMenuNavbar } from "./js/navbar";
+import { initMenuNavbar } from "./js/navbar";
 // Importa la función para inicializar el carrito
-import { InitCartNavbar } from "./js/cart";
+import { initCartNavbar } from "./js/cart";
+// Import la función para manejar las validaciones del formulario
+import { initForm } from "./js/form";
 
-// Selecciona el formulario de contacto por su id
+/* // Selecciona el formulario de contacto por su id
 const enviarFormulario = document.getElementById('formulario')
 
 // Evita el comportamiento por defecto del formulario y muestra un mensaje en consola
 enviarFormulario.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log("form enviado");
-})
+}) */
 
 // Selecciona todos los elementos con la clase 'logo'
 const toTop = document.querySelectorAll('.logo');
@@ -84,8 +86,9 @@ export const closeOnResize = () => {
 // Función principal que inicializa los módulos de la app
 const init = () => {
     initProducts(); // Inicializa la lógica de productos
-    InitMenuNavbar(); // Inicializa la barra de navegación
-    InitCartNavbar(); // Inicializa el carrito
+    initMenuNavbar(); // Inicializa la barra de navegación
+    initCartNavbar(); // Inicializa el carrito
+    initForm(); // Inicializa el formulario de contacto
 }
 
 // Ejecuta la función principal al cargar el archivo

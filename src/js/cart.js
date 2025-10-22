@@ -113,7 +113,7 @@ const showUnitTemplate = (message) => {
 
     setTimeout(() => {
         unitDiv.classList.remove('unit-alert-show');
-    }, 1000);
+    }, 1500);
 }
 
 
@@ -125,9 +125,11 @@ const addProductToCart = ({ target }) => {
     if (isExistingProduct(product)) {
         addUnitToProduct(product);
         showUnitTemplate('Se agregó una unidad más al carrito');
+        UpdateCartState();
     } else {
         cartProducts = [...cartProducts, { ...product, quantity: 1 }];
         showUnitTemplate('Producto agregado al carrito');
+        UpdateCartState();
     }
     
 };
@@ -290,7 +292,7 @@ const alertBuyCart = ({ target }) => {
 };
 
 const updateCartBadge = (count) => {
-    const cartIcon = document.querySelector('.cart-icon');
+    const cartIcon = document.querySelector('.cart-bubble');
     cartIcon.setAttribute('data-count', count);
 };
 
@@ -300,7 +302,7 @@ const updateCartBadge = (count) => {
 ///////////////////////////////////////////////////////////////
 
 // Inicializa los eventos del carrito y la barra de navegación
-export const InitCartNavbar = () => {
+export const initCartNavbar = () => {
     // Escucha el click en el ícono del carrito
     cart.addEventListener('click', handleCartClick);
     // Escucha el click en cualquier parte del documento para agregar productos al carrito

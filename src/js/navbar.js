@@ -20,7 +20,7 @@ const handleMenuClick = () => {
 
 
 // Inicializa los eventos del menú de navegación
-export const InitMenuNavbar = () => {
+export const initMenuNavbar = () => {
     // Escucha el click en el ícono del menú
     menu.addEventListener('click', handleMenuClick)
     // Escucha el click en los enlaces de navegación

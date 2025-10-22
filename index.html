@@ -11,7 +11,10 @@
 <body>
   <div class="blur-overlay"></div>
   <div class="unit-alert"></div>
+  <!---------------------------------------------------------->
   <!-- Encabezado principal con logo y navegación -->
+  <!---------------------------------------------------------->
+
   <header>
     <span class="logo">CHECKPOINT</span>
     <nav>
@@ -30,9 +33,9 @@
           <hr>
         </div>
         <!-- Ícono del carrito de compras -->
-        <div class="cart-icon" data-count="">
+        <div class="cart-bubble" data-count="">
           <img class="cart" src="/img/Cart.svg" alt="carrito de compras">
-         </div>
+        </div>
         <div class="cart-container">
           <h4>Productos en el carrito:</h4>
           <div class="cartproducts-container"></div>
@@ -53,7 +56,10 @@
 
   </header>
   <main>
+    <!---------------------------------------------------------->
     <!-- Sección principal de presentación (Hero) -->
+    <!---------------------------------------------------------->
+
     <section class="hero" id="hero">
       <div class="hero-text">
         <h1> Subí de nivel <br> Equipate como un profesional</h1>
@@ -70,7 +76,11 @@
         </p>
       </div>
     </section>
+
+    <!---------------------------------------------------------->
     <!-- Sección sobre la empresa -->
+    <!---------------------------------------------------------->
+
     <section class="about-us" id="about-us">
       <h2>Sobre Nosotros</h2>
 
@@ -92,7 +102,11 @@
           necesitás para llevar tu experiencia al siguiente nivel. Bienvenido al futuro del gaming. 🚀🎮</p>
       </div>
     </section>
+
+    <!---------------------------------------------------------->
     <!-- Sección de productos con filtros y cards -->
+    <!---------------------------------------------------------->
+
     <section class="products" id="products">
       <h2>Productos</h2>
       <div class="products-buttons">
@@ -115,19 +129,43 @@
       <!-- Botón para mostrar más productos -->
       <button class="show-more">Ver más</button>
     </section>
+
+    <!---------------------------------------------------------->
     <!-- Sección de contacto con formulario y mapa -->
+    <!---------------------------------------------------------->
+
     <section class="contact" id="contact">
       <h2>Contactanos</h2>
       <div class="contact-container">
         <!-- Formulario de contacto -->
-        <form action="" id="formulario">
-          <label for="email">Email:</label>
-          <input class="email" type="text" placeholder="edgardo98@gmail.com" name="email" required>
-          <label for="name">Nombre:</label>
-          <input class="name" type="text" placeholder="Edgardo Gomez" name="name" required>
-          <label for="message">Consulta:</label>
-          <textarea class="text" name="message" id="message" placeholder="Escriba su consulta"></textarea>
+        <form action="" id="formulary">
+          <!-- Contenedor del campo de email -->
+          <div class="form-field email-container">
+            <label for="email">Email:</label>
+            <input class="email" type="text" placeholder="edgardo98@gmail.com" name="email">
+            <small></small>
+          </div>
+          <!-- Contenedor del campo de nombre -->
+          <div class="form-field name-container">
+            <label for="name">Nombre:</label>
+            <input class="name" type="text" placeholder="Edgardo" name="name">
+            <small></small>
+          </div>
+          <!-- Contenedor del campo de apellido -->
+          <div class="form-field lastname-container">
+            <label for="lastname">Apellido:</label>
+            <input class="lastname" type="text" placeholder="Gomez" name="lastname">
+            <small></small>
+          </div>
+          <!-- Contenedor del campo de mensaje -->
+          <div class="form-field message-container">
+            <label for="message">Consulta:</label>
+            <textarea class="text-message" name="message" id="message" placeholder="Escriba su consulta"></textarea>
+            <small></small>
+          </div>
+          <!-- Botón para enviar el formulario -->
           <button class="submit">Enviar</button>
+          <small class="success-message">Consulta enviada</small>
         </form>
 
         <!-- Mapa de ubicación usando Google Maps -->
@@ -138,7 +176,9 @@
       </div>
 
     </section>
+    <!--------------------------------------------------------->
     <!-- Pie de página con redes sociales, links y newsletter -->
+    <!---------------------------------------------------------->
     <footer>
       <hr>
       <div class="footer-content">
