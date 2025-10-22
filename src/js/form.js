@@ -1,3 +1,5 @@
+// Selección de elementos del formulario de contacto
+// (Inputs, textarea, formulario y mensaje de éxito)
 const emailForm = document.querySelector('.email');
 const nameForm = document.querySelector('.name');
 const lastnameForm = document.querySelector('.lastname');

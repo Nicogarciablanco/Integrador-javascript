@@ -291,6 +291,7 @@ const alertBuyCart = ({ target }) => {
     }
 };
 
+// Actualiza el badge/burbuja del ícono del carrito con la cantidad total de unidades
 const updateCartBadge = (count) => {
     const cartIcon = document.querySelector('.cart-bubble');
     cartIcon.setAttribute('data-count', count);

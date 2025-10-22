@@ -11,6 +11,7 @@ const cartopen = document.querySelector('.cart-container')
 const handleMenuClick = () => {
     // Alterna la visibilidad de los enlaces de navegación
     navlinks.classList.toggle('navlinks-open')
+    // Activa/desactiva el overlay de desenfoque según el estado del menú/carrito
     blurOverlay();
     // Si el carrito está abierto, lo cierra
     if (cartopen.classList.contains('cart-open')) {
