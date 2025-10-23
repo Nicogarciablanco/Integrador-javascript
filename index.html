@@ -140,25 +140,25 @@
         <!-- Formulario de contacto -->
         <form action="" id="formulary">
           <!-- Contenedor del campo de email -->
-          <div class="form-field email-container">
+          <div class="form-field">
             <label for="email">Email:</label>
             <input class="email" type="text" placeholder="edgardo98@gmail.com" name="email">
             <small></small>
           </div>
           <!-- Contenedor del campo de nombre -->
-          <div class="form-field name-container">
+          <div class="form-field">
             <label for="name">Nombre:</label>
             <input class="name" type="text" placeholder="Edgardo" name="name">
             <small></small>
           </div>
           <!-- Contenedor del campo de apellido -->
-          <div class="form-field lastname-container">
+          <div class="form-field">
             <label for="lastname">Apellido:</label>
             <input class="lastname" type="text" placeholder="Gomez" name="lastname">
             <small></small>
           </div>
           <!-- Contenedor del campo de mensaje -->
-          <div class="form-field message-container">
+          <div class="form-field">
             <label for="message">Consulta:</label>
             <textarea class="text-message" name="message" id="message" placeholder="Escriba su consulta"></textarea>
             <small></small>
@@ -201,9 +201,13 @@
           </ul>
           <!-- Formulario de suscripción al newsletter -->
           <form class="newsletter-form" action="" id="newsletter">
-            <label class="newsletter-label" for="">Suscribite a nuestro newsletter</label>
-            <input class="newsletter-email" type="email" placeholder="Tu email" required>
+            <div class="newsletter-container">
+              <label class="newsletter-label" for="email">Suscribite a nuestro newsletter</label>
+              <input class="newsletter-email" type="email" placeholder="Tu email">
+              <small></small>
+            </div>
             <button class="newsletter-submit" type="submit">Enviar</button>
+            <small class="success-newsletter">Gracias por suscribirte</small>
           </form>
         </div>
         <p>© 2025 Checkpoint. Todos los derechos reservados.</p>

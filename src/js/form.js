@@ -50,7 +50,7 @@ const showSuccess = (field) => {
     formField.classList.add('success');
 };
 
-const showSuccessSendForm = () => {
+export const showSuccessSendForm = () => {
     successMessage.style.display = 'block';
     setTimeout(() => {
         successMessage.style.display = 'none';
@@ -82,7 +82,7 @@ const checkTextInput = (input) => {
 
 
 // Función para validar el input de email
-const checkEmailInput = (input) => {
+ export const checkEmailInput = (input) => {
     let valid = false;
 
     if (isEmpty(input)) {
@@ -130,7 +130,6 @@ const ValidateForm = (e) => {
     let isFormValid = isNameValid && isLastnameValid && isEmailValid && isMessageValid;
 
     if (isFormValid) {
-        console.log('Formulario enviado');
         form.reset();
         showSuccessSendForm();
     }

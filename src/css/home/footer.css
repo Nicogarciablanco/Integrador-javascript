@@ -74,6 +74,14 @@ hr {
     justify-content: space-between;
 }
 
+.newsletter-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+}
+
 .newsletter-label {
     font-family: var(--cuerpo_de_texto_font);
 }
@@ -81,11 +89,12 @@ hr {
 .newsletter-email {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--color-border);
+    border: none;
     border-radius: 5px;
     font-size: 16px;
     font-family: var(--cuerpo_de_texto_font);
     color: black;
+    outline: none;
 }
 
 .newsletter-submit {
@@ -104,6 +113,14 @@ hr {
 .newsletter-submit:hover {
     background-color: white;
     color: black;
+}
+
+.success-newsletter {
+    font-family: var(--cuerpo_de_texto_font);
+    font-size: 16px;
+    display: none;
+    text-align: center;
+    color: green;
 }
 
 @media (max-width: 1440px) {

@@ -1,20 +1,13 @@
 // Importa la función para inicializar los productos
-import {initProducts} from "./js/products";
+import { initProducts } from "./js/products";
 // Importa la función para inicializar el menú de navegación
 import { initMenuNavbar } from "./js/navbar";
 // Importa la función para inicializar el carrito
 import { initCartNavbar } from "./js/cart";
 // Import la función para manejar las validaciones del formulario
 import { initForm } from "./js/form";
-
-/* // Selecciona el formulario de contacto por su id
-const enviarFormulario = document.getElementById('formulario')
-
-// Evita el comportamiento por defecto del formulario y muestra un mensaje en consola
-enviarFormulario.addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log("form enviado");
-}) */
+// Importa la función para inicializar el formulario de newsletter
+import { initNewsletterForm } from "./js/footer-newsletter";
 
 // Selecciona todos los elementos con la clase 'logo'
 const toTop = document.querySelectorAll('.logo');
@@ -89,6 +82,7 @@ const init = () => {
     initMenuNavbar(); // Inicializa la barra de navegación
     initCartNavbar(); // Inicializa el carrito
     initForm(); // Inicializa el formulario de contacto
+    initNewsletterForm(); // Inicializa el formulario de newsletter
 }
 
 // Ejecuta la función principal al cargar el archivo

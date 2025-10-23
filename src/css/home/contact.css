@@ -81,11 +81,11 @@ small {
 }
 
 .error {
-    border: 2px solid red;
+    border: 2px solid red !important;
 }
 
 .success {
-    border: 3px solid green;
+    border: 3px solid green !important;
 }
 
 .success-message {
